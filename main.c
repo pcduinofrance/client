@@ -32,12 +32,17 @@ int main(int argc , char *argv[])
     }
      
     puts("Connected\n");
-     
-    //keep communicating with server
-    while(1)
+	
+     message[0] = 1;
+    //keep communicating with server and exit to close loop
+    while(message[0] != 'e' || message[1] != 'x' || message[2] != 'i' || message[3] != 't')
     {
-        printf("Enter message : ");
+		// vider le buffer!!!!!!
+
+		
+        printf(":> ");
         scanf("%s" , message);
+
          
         //Send some data
         if( send(sock , message , strlen(message) , 0) < 0)
